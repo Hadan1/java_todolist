@@ -25,4 +25,10 @@ public class UserController {
     public User create(@RequestBody User user) {
         return userService.create(user);
     }
+
+    @DeleteMapping(path = "{id}")
+    public void delete(@PathVariable Integer id) {
+        userService.delete(id);
+    }
+
 }

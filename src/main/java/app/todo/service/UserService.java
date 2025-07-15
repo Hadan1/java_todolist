@@ -27,4 +27,12 @@ public class UserService {
         }
         return userRepository.save(user);
     }
+
+    public void delete(int id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (optionalUser.isEmpty()) {
+            throw new IllegalStateException("User with id " + id + " does not exist");
+        }
+        userRepository.deleteById(id);
+    }
 }
