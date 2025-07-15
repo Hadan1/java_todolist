@@ -10,7 +10,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    @Column (name = "email_adress")
     private String email;
 
     public User(String name, Integer id, String email) {

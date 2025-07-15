@@ -2,9 +2,7 @@ package app.todo.controller;
 
 import app.todo.repository.User;
 import app.todo.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,8 @@ public class UserController {
         return userService.findAll();
     }
 
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return userService.create(user);
+    }
 }
