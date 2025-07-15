@@ -12,13 +12,13 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController() {
-        this.userService = new UserService();
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping
-    public List<User> helloWorld() {
-        userService.helloWorld();
+    public List<User> findAll() {
+        return userService.findAll();
     }
 
 }

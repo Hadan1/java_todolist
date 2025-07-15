@@ -1,16 +1,22 @@
 package app.todo.service;
 
 import app.todo.repository.User;
+import app.todo.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserService {
-    public List<User> helloWorld() {
-        return List.of(
-                new User("Dmitry", 1, "dmit@mail.ru"),
-                new User("Oleg", 2, "oleg@mail.ru"),
-                new User("Ivan", 3, "ivan@mail.ru")
-        );
+
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
 }
